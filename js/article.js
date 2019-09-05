@@ -8,7 +8,7 @@ fetch("./jsons/articles.json")
   });
 
 function makeArticle() {
-  const searchableIDOfObject = +window.location.search.slice(3);
+  const searchableIDOfObject = +window.location.search.slice(1);
   let article = articleArrObj.articles.filter(
     item => item.id === searchableIDOfObject
   );

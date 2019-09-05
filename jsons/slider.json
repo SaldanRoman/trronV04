@@ -4,7 +4,7 @@
     "title": "Sassicaia",
     "subtitle": "Wine and not only",
     "description": "Perhaps the most famous Italian drinks",
-    "buttonUrl": "blog.html?id0",
+    "buttonUrl": "article.html?id0",
     "buttonColor": "slider-content-text-link--red",
     "position": "slider-content-text--center"
   },
@@ -13,7 +13,7 @@
     "title": "Macallan Whiskey",
     "subtitle": "Bright shades of tradition",
     "description": "Best Anniversary Gift",
-    "buttonUrl": "blog.html?id1",
+    "buttonUrl": "article.html?1",
     "buttonColor": "slider-content-text-link--red",
     "position": "slider-content-text--center"
   },
@@ -22,7 +22,7 @@
     "title": "Crystal decanters",
     "subtitle": "Riedel",
     "description": "More than a carafe for wine",
-    "buttonUrl": "blog.html?id2",
+    "buttonUrl": "article.html?2",
     "buttonColor": "slider-content-text-link--blue",
     "position": "slider-content-text--right"
   },
@@ -31,7 +31,7 @@
     "title": "Provetto",
     "subtitle": "Provetto Spumante Bianco Brut",
     "description": "Deep and rich taste",
-    "buttonUrl": "blog.html?id4",
+    "buttonUrl": "article.html?4",
     "buttonColor": "slider-content-text-link--blue",
     "position": "slider-content-text--right"
   }
