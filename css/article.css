@@ -1,57 +1,57 @@
-.blog-wrapper {
+.article-wrapper {
   display: flex;
   flex-direction: column;
   color: #333;
   box-sizing: border-box;
 }
 
-.blog-content {
+.article-content {
   order: 1;
 }
 
-.blog-content-title {
+.article-content-title {
   font-size: 1.4rem;
   font-weight: 400;
 }
 
-.blog-links-wrapper {
+.article-links-wrapper {
   order: 2;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.blog-links-heading {
+.article-links-heading {
   width: 95%;
   margin: 0 auto;
   padding: 10px 0 0 5px;
   border-bottom: 0.5px solid #dfdfdf;
 }
 
-.blog-links {
+.article-links {
   width: 95%;
   margin: 0 auto;
   padding: 5px 0 0 0;
 }
 
-.blog-links:hover {
+.article-links:hover {
   transition: 0.3s;
   color: #ff8c00;
 }
 
-.blog-content-image {
+.article-content-image {
   width: 100%;
 }
 
 @media (min-width: 800px) {
-  .blog-wrapper {
+  .article-wrapper {
     flex-direction: row;
   }
-  .blog-content {
+  .article-content {
     width: 70%;
     order: 2;
   }
-  .blog-links-wrapper {
+  .article-links-wrapper {
     width: 30%;
     order: 1;
     padding: 0 20px 0 0;
