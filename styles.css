@@ -1,31 +1,32 @@
 @import "css/benefits.css";
 @import "css/slider.css";
+@import "css/blog.css";
 
 @import "css/footer.css";
 
 @import "css/header.css";
 @font-face {
-    font-family: "OpenSans";
-    src: url("assets/fonts/opensans.ttf") format("truetype"),
+  font-family: "OpenSans";
+  src: url("assets/fonts/opensans.ttf") format("truetype"),
     url("assets/fonts/opensans.woff") format("woff");
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    font-family: OpenSans, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: OpenSans, Arial, sans-serif;
 }
 
 .content-width {
-    max-width: 1200px;
-    width: 100%;
-    padding: 0 10px;
-    margin: auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 10px;
+  margin: auto;
 }
