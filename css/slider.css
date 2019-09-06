@@ -99,6 +99,7 @@
   display: flex;
   flex-direction: column;
   color: #fff;
+  max-width: 400px;
 }
 
 .slider-content-text-title {
@@ -159,6 +160,9 @@
 }
 
 @media (max-width: 800px) {
+  .slider-content-text {
+    max-width: 240px;
+  }
   .slider-content-text-title {
     text-shadow: 0 0 3px #000;
     font-size: 2rem;
@@ -197,7 +201,7 @@
     background-position: right;
   }
 
-  .slider-content-text--right .slider-content-text {
-    margin: 2px;
+  .slider-content-text {
+    margin: 0 8% 0 8%;
   }
 }

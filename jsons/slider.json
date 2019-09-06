@@ -19,8 +19,8 @@
   },
   {
     "imgSrc": "img/slider/3.jpg",
-    "title": "Crystal decanters",
-    "subtitle": "Riedel",
+    "title": "Riedel",
+    "subtitle": "Crystal decanters",
     "description": "More than a carafe for wine",
     "buttonUrl": "article.html?2",
     "buttonColor": "slider-content-text-link--blue",
