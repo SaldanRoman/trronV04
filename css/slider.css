@@ -178,7 +178,7 @@
   }
 }
 
-@media (max-width: 385px) {
+@media (max-width: 485px) {
   .slider-content-text--right {
     justify-content: center;
     align-items: center;
