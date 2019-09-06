@@ -183,6 +183,9 @@
     justify-content: center;
     align-items: center;
   }
+  .slider-content {
+    background-position: right;
+  }
 
   .slider-content-text--right .slider-content-text {
     margin: 2px;

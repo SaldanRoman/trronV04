@@ -4,7 +4,7 @@
     "title": "Sassicaia",
     "subtitle": "Wine and not only",
     "description": "Perhaps the most famous Italian drinks",
-    "buttonUrl": "article.html?id0",
+    "buttonUrl": "article.html?0",
     "buttonColor": "slider-content-text-link--red",
     "position": "slider-content-text--center"
   },
@@ -31,7 +31,7 @@
     "title": "Provetto",
     "subtitle": "Provetto Spumante Bianco Brut",
     "description": "Deep and rich taste",
-    "buttonUrl": "article.html?4",
+    "buttonUrl": "article.html?3",
     "buttonColor": "slider-content-text-link--blue",
     "position": "slider-content-text--right"
   }
