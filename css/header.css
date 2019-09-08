@@ -53,7 +53,7 @@
   box-shadow: 0 0 7px 0 #858585;
   opacity: 0;
   visibility: hidden;
-  transition: visibility 0.5s, opacity 0.5s, top 0.5s;
+  transition: visibility .5s, opacity .5s, top .5s;
 }
 
 .header-top-list li {
@@ -71,7 +71,7 @@
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: opacity 0.5s, top 0.5s;
+  transition: opacity .5s, top .5s;
 }
 
 .header-top-list-text:hover {
@@ -181,7 +181,7 @@
   background-color: #fff;
   opacity: 0;
   visibility: hidden;
-  transition: 0.5s;
+  transition: .5s;
   cursor: auto;
 }
 
@@ -216,15 +216,15 @@
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-wrapper--grey {
+  z-index: 1;
   background-color: #dfdfdf;
 }
 
 .header-wrapper--grey--fixed {
-  z-index: 1;
   top: 0;
   position: fixed;
   right: 0;
@@ -283,13 +283,13 @@
   z-index: 1;
   opacity: 0;
   visibility: hidden;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-nav-menu:hover .header-nav-menu-list {
   opacity: 1;
   visibility: visible;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-nav-menu-list a:hover {
@@ -303,7 +303,6 @@
 
 .header-nav-menu-list li,
 .header-nav-catalog-list li {
-  z-index: 1;
   padding: 10px;
   list-style-type: none;
   font-weight: bold;
@@ -344,7 +343,7 @@
   opacity: 0;
   top: -50px;
   visibility: hidden;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-nav-scroll--show {
@@ -352,7 +351,7 @@
   opacity: 1;
   top: 0;
   visibility: visible;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-nav-scroll-user {
@@ -383,7 +382,7 @@
   opacity: 0;
   top: 60px;
   visibility: hidden;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-nav-scroll-user-list a {
@@ -398,7 +397,7 @@
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-nav-scroll-search {
@@ -428,7 +427,7 @@
   opacity: 0;
   top: 60px;
   visibility: hidden;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-nav-scroll-search:hover .header-nav-scroll-search-list {
@@ -437,7 +436,7 @@
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-nav-scroll-basket {
@@ -465,7 +464,7 @@
   opacity: 1;
   top: 50px;
   visibility: visible;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .header-nav-scroll-user-list a:hover {
@@ -535,6 +534,7 @@
   }
 
   .header-nav-catalog-list-list {
+    z-index: 1;
     display: none;
     flex-direction: column;
     position: absolute;
@@ -549,7 +549,7 @@
     box-shadow: 0 0 7px 0 #858585;
     opacity: 0;
     visibility: hidden;
-    transition: 0.5s;
+    transition: .5s;
   }
 
   .header-nav-catalog-list-list-button:hover .header-nav-catalog-list-list {
@@ -561,7 +561,7 @@
     box-shadow: 0 0 7px 0 #858585;
     opacity: 1;
     visibility: visible;
-    transition: 0.5s;
+    transition: .5s;
   }
 }
 
@@ -626,7 +626,7 @@
     overflow-x: scroll;
     opacity: 0;
     visibility: hidden;
-    transition: 0.5s;
+    transition: .5s;
     position: fixed;
   }
 
@@ -635,7 +635,7 @@
     opacity: 1;
     z-index: 1;
     visibility: visible;
-    transition: 0.5s;
+    transition: .5s;
   }
 
   .header-nav-catalog-list-list {
@@ -718,10 +718,10 @@
   }
 
   .header-nav-menu-list {
-    transition: 0.5s;
+    transition: .5s;
   }
 
   .header-nav-menu:hover .header-nav-menu-list {
-    transition: 0.5s;
+    transition: .5s;
   }
 }

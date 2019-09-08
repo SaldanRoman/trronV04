@@ -9,7 +9,7 @@
 
 .slider:hover .slider-buttons-wrapper {
   opacity: 1;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .slider-buttons-wrapper {
@@ -18,15 +18,15 @@
   display: flex;
   align-items: center;
   z-index: 100;
-  transition: 0.3s;
+  transition: .3s;
   opacity: 0;
 }
 
 .slider-buttons {
-  opacity: 0.6;
+  opacity: .6;
   border: none;
   outline-style: none;
-  transition: 0.3s;
+  transition: .3s;
   background-color: #d3d3d3;
   border-radius: 2px;
   font-size: 1.6rem;
@@ -35,17 +35,17 @@
 
 .slider-buttons:hover {
   opacity: 1;
-  transition: 0.3s;
+  transition: .3s;
   color: #fff;
   background-color: #ff8c00;
 }
 
 .slider-buttons-wrapper--left {
-  left: 0.5%;
+  left: .5%;
 }
 
 .slider-buttons-wrapper--right {
-  right: 0.5%;
+  right: .5%;
 }
 
 .slider-content-wrapper {
@@ -63,7 +63,7 @@
   background-position: center;
   background-size: cover;
   display: flex;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .slider-content-text--center {
@@ -81,17 +81,17 @@
 
 .slider-content--left {
   left: -100%;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .slider-content--current {
   left: 0;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .slider-content--right {
   left: 100%;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .slider-content-text {
@@ -151,12 +151,12 @@
 
 .slider-content-text-link:hover {
   background-color: #fca53c;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .slider-content-text--visible {
   left: 0;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 @media (max-width: 800px) {
