@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  margin: auto;
+  margin: 20px 0;
 }
 .timer-content {
   width: 53px;
