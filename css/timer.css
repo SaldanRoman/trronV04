@@ -1,0 +1,35 @@
+.content-width {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.timer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+.timer-content {
+  width: 53px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1px;
+  box-sizing: border-box;
+}
+.timer-content-data {
+  background-color: #0164c9;
+  color: #fff;
+  font-size: 1.14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 39px;
+  height: 36px;
+}
+.timer-content-text {
+  color: #333333;
+  line-height: 30px;
+  text-align: center;
+}
