@@ -1,12 +1,7 @@
-.content-width {
-  max-width: 1200px;
-  margin: 0 auto;
-}
 .timer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid black;
   box-sizing: border-box;
 }
 .timer-content {
