@@ -1,6 +1,6 @@
 (function seleTimer() {
   const nextFinDays =
-    1 - (Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24) % 3);
+    2 - ((new Date().getTime() / 1000 / 60 / 60 / 24) % 3);
   const finDate = new Date();
   finDate.setDate(finDate.getDate() + nextFinDays);
   finDate.setHours(23);
