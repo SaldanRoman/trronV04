@@ -1,11 +1,8 @@
+let nextTime = 38;
+let finDate = new Date(2019, 8, 14, 19,nextTime,0);
 (function seleTimer() {
-  const nextFinDays =
-    5 - ((new Date().getTime() / 1000 / 60 / 60 / 24) % 3);
-  const finDate = new Date();
-  finDate.setDate(finDate.getDate() + nextFinDays);
-  finDate.setHours(23);
-  finDate.setMinutes(59);
-  finDate.setSeconds(59);
+
+
   let diff = finDate.getTime() - new Date().getTime();
   let seconds = Math.floor((diff / 1000) % 60);
   let minutes = Math.floor((diff / 1000 / 60) % 60);
