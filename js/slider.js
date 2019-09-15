@@ -1,11 +1,25 @@
 let arrayOfSliderProd;
-fetch("./jsons/slider.json")
-  .then(response => response.json())
-  .then(data => {
-    arrayOfSliderProd = data;
-    createSlider();
-    changSlide();
-  });
+
+(function ajaxGetJson() {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      arrayOfSliderProd = JSON.parse(xhr.response);
+      createSlider();
+      changSlide();
+    }
+  };
+  xhr.open("GET", "./jsons/slider.json", true);
+  xhr.send();
+})();
+
+// fetch("./jsons/slider.json")
+//   .then(response => response.json())
+//   .then(data => {
+//     //arrayOfSliderProd = data;
+//     //createSlider();
+//     //changSlide();
+//   });
 
 function createSlider() {
   const slideProdArr = arrayOfSliderProd.length - 1;
@@ -88,7 +102,7 @@ function generateSlide(slidePositionClass, currentSlideIndex, slideDataObj) {
   slideContent.setAttribute("data-index", currentSlideIndex);
   slideContent.setAttribute(
     "style",
-    `background-image:url(${slideDataObj.imgSrc})`
+    "background-image:url(" + slideDataObj.imgSrc + ")"
   );
   slideContent.classList.add(slidePositionClass);
   slideContent.classList.add(slideDataObj.position);
@@ -104,7 +118,7 @@ function generateSlide(slidePositionClass, currentSlideIndex, slideDataObj) {
   descriptionText.setAttribute("class", "slider-content-text-description");
   descriptionText.innerText = slideDataObj.description;
   const linkText = document.createElement("a");
-  linkText.setAttribute("href", `${slideDataObj.buttonUrl}`);
+  linkText.setAttribute("href", slideDataObj.buttonUrl);
   linkText.setAttribute("target", "_blank");
   linkText.setAttribute("class", "slider-content-text-link");
   linkText.classList.add(slideDataObj.buttonColor);
