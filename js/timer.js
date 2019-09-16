@@ -52,8 +52,7 @@ let rotationClockSeconds = 180;
   }
   displaySeleTime[1].innerText = hours;
 
-  if (
-    displaySeleTime[2].innerText > minutes) {
+  if (displaySeleTime[2].innerText > minutes) {
     timerDataWrapper[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
     displaySeleTime[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
     rotationClockMinutes += 180;
@@ -61,10 +60,11 @@ let rotationClockSeconds = 180;
   displaySeleTime[2].innerText = minutes;
 
   displaySeleTime[3].innerText = seconds;
-  if (displaySeleTime[3].innerText >= seconds) {
+  setTimeout(function() {
     timerDataWrapper[3].style.transform = `rotateX(${rotationClockSeconds}deg)`;
     displaySeleTime[3].style.transform = `rotateX(${rotationClockSeconds}deg)`;
     rotationClockSeconds += 180;
-  }
+  }, 10);
+
   setTimeout(seleTimer, 1000);
 })();
