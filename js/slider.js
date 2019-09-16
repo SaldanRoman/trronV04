@@ -48,15 +48,20 @@ function changSlide(direction) {
   const curentImg = document.querySelector(".slider-content--current");
   const rightImg = document.querySelector(".slider-content--right");
   if (direction === "left") {
-    leftImg.remove();
-    curentImg.classList.replace(
-      "slider-content--current",
-      "slider-content--left"
-    );
-    rightImg.classList.replace(
-      "slider-content--right",
-      "slider-content--current"
-    );
+    leftImg.parentNode.removeChild(leftImg);
+    curentImg.classList.add("slider-content--left");
+    curentImg.classList.remove("slider-content--current");
+    rightImg.classList.add("slider-content--current");
+    rightImg.classList.remove("slider-content--right");
+    // leftImg.remove();
+    // curentImg.classList.replace(
+    //   "slider-content--current",
+    //   "slider-content--left"
+    // );
+    // rightImg.classList.replace(
+    //   "slider-content--right",
+    //   "slider-content--current"
+    // );
     slider.appendChild(
       generateSlide(
         "slider-content--right",
@@ -65,15 +70,21 @@ function changSlide(direction) {
       )
     );
   } else {
-    rightImg.remove();
-    curentImg.classList.replace(
-      "slider-content--current",
-      "slider-content--right"
-    );
-    leftImg.classList.replace(
-      "slider-content--left",
-      "slider-content--current"
-    );
+    rightImg.parentNode.removeChild(rightImg);
+    curentImg.classList.add("slider-content--right");
+    curentImg.classList.remove("slider-content--current");
+    leftImg.classList.add("slider-content--current");
+    leftImg.classList.remove("slider-content--left");
+
+    // rightImg.remove();
+    // curentImg.classList.replace(
+    //   "slider-content--current",
+    //   "slider-content--right"
+    // );
+    // leftImg.classList.replace(
+    //   "slider-content--left",
+    //   "slider-content--current"
+    // );
     slider.appendChild(
       generateSlide(
         "slider-content--left",
@@ -89,11 +100,17 @@ function changSlide(direction) {
 function getNextIndex(el, direction) {
   const currentIndex = +el.getAttribute("data-index");
   if (direction === "right") {
-    return arrayOfSliderProd[currentIndex + 1] ? currentIndex + 1 : 0;
+    if (arrayOfSliderProd[currentIndex + 1]) {
+      return currentIndex + 1;
+    } else {
+      return 0;
+    }
   }
-  return arrayOfSliderProd[currentIndex - 1]
-    ? currentIndex - 1
-    : arrayOfSliderProd.length - 1;
+  if (arrayOfSliderProd[currentIndex - 1]) {
+    return currentIndex - 1;
+  } else {
+    return arrayOfSliderProd.length - 1;
+  }
 }
 
 function generateSlide(slidePositionClass, currentSlideIndex, slideDataObj) {
@@ -110,17 +127,21 @@ function generateSlide(slidePositionClass, currentSlideIndex, slideDataObj) {
   sliderText.setAttribute("class", "slider-content-text");
   const titleText = document.createElement("p");
   titleText.setAttribute("class", "slider-content-text-title");
+  titleText.classList.add("slider-content-text-JS");
   titleText.innerText = slideDataObj.title;
   const subTitleText = document.createElement("p");
   subTitleText.setAttribute("class", "slider-content-text-subtitle");
+  subTitleText.classList.add("slider-content-text-JS");
   subTitleText.innerText = slideDataObj.subtitle;
   const descriptionText = document.createElement("p");
   descriptionText.setAttribute("class", "slider-content-text-description");
+  descriptionText.classList.add("slider-content-text-JS");
   descriptionText.innerText = slideDataObj.description;
   const linkText = document.createElement("a");
   linkText.setAttribute("href", slideDataObj.buttonUrl);
   linkText.setAttribute("target", "_blank");
   linkText.setAttribute("class", "slider-content-text-link");
+  linkText.classList.add("slider-content-text-JS");
   linkText.classList.add(slideDataObj.buttonColor);
   linkText.innerText = "TRY IT";
   sliderText.appendChild(titleText);
@@ -133,17 +154,26 @@ function generateSlide(slidePositionClass, currentSlideIndex, slideDataObj) {
 
 function textMoveIn(behavior) {
   let timeoutValue = 50;
-  const text = document.querySelector(
-    ".slider-content--current .slider-content-text"
-  ).childNodes;
-  for (let i = text.length - 1; i >= 0; i--) {
+  const text = document.querySelectorAll(
+    ".slider-content--current .slider-content-text .slider-content-text-JS"
+  );
+  if (behavior === "hide") {
+    text[0].classList.remove("slider-content-text--visible");
+    text[1].classList.remove("slider-content-text--visible");
+    text[2].classList.remove("slider-content-text--visible");
+    text[3].classList.remove("slider-content-text--visible");
+  } else {
     setTimeout(function() {
-      if (behavior === "hide") {
-        text[i].classList.remove("slider-content-text--visible");
-      } else {
-        text[i].classList.add("slider-content-text--visible");
-      }
-    }, timeoutValue);
-    timeoutValue += 50;
+      text[3].classList.add("slider-content-text--visible");
+    }, 50);
+    setTimeout(function() {
+      text[2].classList.add("slider-content-text--visible");
+    }, 100);
+    setTimeout(function() {
+      text[1].classList.add("slider-content-text--visible");
+    }, 150);
+    setTimeout(function() {
+      text[0].classList.add("slider-content-text--visible");
+    }, 200);
   }
 }

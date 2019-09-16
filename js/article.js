@@ -1,11 +1,24 @@
 let articleArrObj;
 
-fetch("./jsons/articles.json")
-  .then(response => response.json())
-  .then(data => {
-    articleArrObj = data;
-    makeArticle();
-  });
+(function() {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      articleArrObj = JSON.parse(xhr.response);
+      makeArticle();
+      console.log(articleArrObj);
+    }
+  };
+  xhr.open("GET", "./jsons/articles.json", true);
+  xhr.send();
+})();
+
+// fetch("./jsons/articles.json")
+//   .then(response => response.json())
+//   .then(data => {
+//     articleArrObj = data;
+//     makeArticle();
+//   });
 
 function makeArticle() {
   let searchableIDOfObject = +window.location.search.slice(1);
@@ -15,9 +28,9 @@ function makeArticle() {
   ) {
     searchableIDOfObject = 0;
   }
-  const articleObj = articleArrObj.articles.filter(
-    item => item.id === searchableIDOfObject
-  );
+  const articleObj = articleArrObj.articles.filter(function(item) {
+    return item.id === searchableIDOfObject;
+  });
 
   const articleContent = document.querySelector(".article-content");
   const image = document.createElement("img");
