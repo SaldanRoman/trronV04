@@ -151,7 +151,8 @@
   left: 0;
   transition: 0.3s;
 }
-@media (min-width: 486px) {
+
+@media (min-width: 801px) {
   .slider-buttons:hover {
     opacity: 1;
     transition: 0.3s;
@@ -160,6 +161,18 @@
   }
 }
 @media (max-width: 800px) {
+  .slider-buttons-wrapper {
+    opacity: 1;
+    transition: 0.3s;
+  }
+
+  .slider-buttons:active {
+    opacity: 1;
+    transition: 0.3s;
+    color: #fff;
+    background-color: #ff8c00;
+  }
+
   .slider-content-text {
     max-width: 240px;
   }
@@ -192,17 +205,6 @@
     align-items: center;
   }
 
-  .slider-buttons-wrapper {
-    opacity: 1;
-    transition: 0.3s;
-  }
-
-  .slider-buttons:active {
-    opacity: 1;
-    transition: 0.3s;
-    color: #fff;
-    background-color: #ff8c00;
-  }
   .slider-content-text--center {
     justify-content: flex-end;
     align-items: center;
