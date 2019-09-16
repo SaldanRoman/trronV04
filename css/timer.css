@@ -1,10 +1,15 @@
+.content-width {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .timer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  margin: 20px 0;
 }
+
 .timer-content {
   width: 53px;
   display: flex;
@@ -14,7 +19,9 @@
   margin: 1px;
   box-sizing: border-box;
 }
-.timer-content-data {
+
+.timer-content-data-wrapper {
+  margin: 5px;
   background-color: #0164c9;
   color: #fff;
   font-size: 1.14rem;
@@ -23,9 +30,10 @@
   align-items: center;
   width: 39px;
   height: 36px;
+  transition: ease-out 0.4s;
 }
+
 .timer-content-text {
   color: #333333;
-  line-height: 30px;
   text-align: center;
 }

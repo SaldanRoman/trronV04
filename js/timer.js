@@ -1,3 +1,12 @@
+const displaySeleTime = document.querySelectorAll(".timer-content-data");
+const timerDataWrapper = document.querySelectorAll(
+  ".timer-content-data-wrapper"
+);
+let rotationClockDays = 180;
+let rotationClockHours = 180;
+let rotationClockMinutes = 180;
+let rotationClockSeconds = 180;
+
 (function seleTimer() {
   const nextFinDays = 2 - (~~(new Date().getTime() / 1000 / 60 / 60 / 24) % 3);
   const finDate = new Date();
@@ -22,12 +31,36 @@
   if (days < 10) {
     days = "0" + days;
   }
-  const displaySeleTime = document.querySelectorAll(".timer-content-data");
+
+  if (displaySeleTime[0].innerText > hours) {
+    timerDataWrapper[0].style.transform = `rotateX(${rotationClockDays}deg)`;
+    displaySeleTime[0].style.transform = `rotateX(${rotationClockDays}deg)`;
+    rotationClockDays += 180;
+  }
   displaySeleTime[0].innerText = days;
+
+  if (displaySeleTime[1].innerText > hours) {
+    timerDataWrapper[1].style.transform = `rotateX(${rotationClockHours}deg)`;
+    displaySeleTime[1].style.transform = `rotateX(${rotationClockHours}deg)`;
+    rotationClockHours += 180;
+  }
   displaySeleTime[1].innerText = hours;
+
+  if (
+    displaySeleTime[2].innerText > minutes ||
+    displaySeleTime[2].innerText == "00"
+  ) {
+    timerDataWrapper[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
+    displaySeleTime[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
+    rotationClockMinutes += 180;
+  }
   displaySeleTime[2].innerText = minutes;
+
   displaySeleTime[3].innerText = seconds;
-  //displaySeleTime.innerText =
-  //days + ":" + hours + ":" + minutes + ":" + seconds;
+  if (displaySeleTime[3].innerText >= seconds) {
+    timerDataWrapper[3].style.transform = `rotateX(${rotationClockSeconds}deg)`;
+    displaySeleTime[3].style.transform = `rotateX(${rotationClockSeconds}deg)`;
+    rotationClockSeconds += 180;
+  }
   setTimeout(seleTimer, 1000);
 })();
