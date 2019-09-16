@@ -1,9 +1,5 @@
-.content-width {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .timer {
+  padding: 25px 0;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
