@@ -15,7 +15,7 @@ let rotationClockSeconds = 180;
   finDate.setMinutes(59);
   finDate.setSeconds(59);
   let diff = finDate.getTime() - new Date().getTime();
-  let seconds = ~~((diff / 1000) % 60);
+  let seconds = Math.round((diff / 1000) % 60);
   let minutes = ~~((diff / 1000 / 60) % 60);
   let hours = ~~((diff / 1000 / 60 / 60) % 24);
   let days = ~~(diff / 1000 / 60 / 60 / 24);
@@ -60,11 +60,10 @@ let rotationClockSeconds = 180;
   displaySeleTime[2].innerText = minutes;
 
   displaySeleTime[3].innerText = seconds;
-  setTimeout(function() {
+  if (displaySeleTime[3].innerText == seconds) {
     timerDataWrapper[3].style.transform = `rotateX(${rotationClockSeconds}deg)`;
     displaySeleTime[3].style.transform = `rotateX(${rotationClockSeconds}deg)`;
     rotationClockSeconds += 180;
-  }, 10);
-
+  }
   setTimeout(seleTimer, 1000);
 })();
