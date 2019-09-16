@@ -35,6 +35,10 @@ let rotationClockSeconds = 180;
   if (displaySeleTime[0].innerText > days) {
     timerDataWrapper[0].style.transform = `rotateX(${rotationClockDays}deg)`;
     displaySeleTime[0].style.transform = `rotateX(${rotationClockDays}deg)`;
+    timerDataWrapper[1].style.transform = `rotateX(${rotationClockHours}deg)`;
+    displaySeleTime[1].style.transform = `rotateX(${rotationClockHours}deg)`;
+    timerDataWrapper[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
+    displaySeleTime[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
     rotationClockDays += 180;
   }
   displaySeleTime[0].innerText = days;
@@ -42,14 +46,14 @@ let rotationClockSeconds = 180;
   if (displaySeleTime[1].innerText > hours) {
     timerDataWrapper[1].style.transform = `rotateX(${rotationClockHours}deg)`;
     displaySeleTime[1].style.transform = `rotateX(${rotationClockHours}deg)`;
+    timerDataWrapper[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
+    displaySeleTime[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
     rotationClockHours += 180;
   }
   displaySeleTime[1].innerText = hours;
 
   if (
-    displaySeleTime[2].innerText > minutes ||
-    displaySeleTime[2].innerText == "00"
-  ) {
+    displaySeleTime[2].innerText > minutes) {
     timerDataWrapper[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
     displaySeleTime[2].style.transform = `rotateX(${rotationClockMinutes}deg)`;
     rotationClockMinutes += 180;
