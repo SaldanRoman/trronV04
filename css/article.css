@@ -5,7 +5,7 @@ nav {
   padding: 20px 0;
 }
 .nav-links:hover {
-  transition: 0.3s;
+  transition: .3s;
   color: #ff8c00;
 }
 
@@ -52,7 +52,7 @@ nav {
 }
 
 .article-links:hover {
-  transition: 0.3s;
+  transition: .3s;
   color: #ff8c00;
 }
 
