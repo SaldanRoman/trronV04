@@ -18,7 +18,7 @@ let sumOfPages;
 
 function createContent(arrayOfArticles, numOfPage) {
   let arr = arrayOfArticles.slice(numOfPage, numOfPage + 8);
-  if (numOfPage + 6 > arrayOfArticles.length) {
+  if (numOfPage + 8 > arrayOfArticles.length) {
     arr = arrayOfArticles.slice(numOfPage, arrayOfArticles.length);
   }
   for (let i = 0; i < arr.length; i++) {
