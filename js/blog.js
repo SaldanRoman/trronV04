@@ -8,13 +8,91 @@ let sumOfPages;
     if (xhr.readyState === 4 && xhr.status === 200) {
       arrayOfArticles = JSON.parse(xhr.response).articles;
       arrayOfAllArticles = JSON.parse(xhr.response).articles;
+      const serchLine = window.location.search.slice(1).replace("%20", " ");
+      console.log(serchLine);
       createPages();
+      switchPages();
       createContent(arrayOfArticles, 0);
+      document.querySelectorAll(".blog-links").forEach(function(item) {
+        if (item.innerText === serchLine) {
+          item.click();
+        }
+      });
     }
   };
   xhr.open("GET", "./jsons/articles.json", true);
   xhr.send();
 })();
+
+function createPages() {
+  let articlescount = 0;
+  window.pagesOfContent = document.querySelector(".blog-pages");
+  sumOfPages = Math.ceil(arrayOfArticles.length / 8);
+  if (arrayOfArticles.length <= 8) {
+    return;
+  }
+  for (let pagesindex = 1; pagesindex <= sumOfPages; pagesindex++) {
+    const pageIndex = document.createElement("a");
+    pageIndex.setAttribute("href", "#");
+    pageIndex.setAttribute("class", "blog-pages-links");
+    pageIndex.setAttribute("data", articlescount);
+    pageIndex.innerText = pagesindex;
+    pagesOfContent.appendChild(pageIndex);
+    articlescount += 8;
+  }
+  const previousPage = document.createElement("p");
+  previousPage.setAttribute("class", "blog-pages-links");
+  previousPage.setAttribute("onclick", "changePages(this)");
+  previousPage.setAttribute("data-next-page", 1);
+  previousPage.setAttribute("direction", "prev");
+  previousPage.style.cursor = "pointer";
+  previousPage.style.width = "120px";
+  previousPage.style.display = "none";
+  previousPage.innerText = "‹ previous page";
+  pagesOfContent.prepend(previousPage);
+
+  const nextPage = document.createElement("p");
+  nextPage.setAttribute("class", "blog-pages-links");
+  nextPage.setAttribute("onclick", "changePages(this)");
+  nextPage.setAttribute("data-next-page", 1);
+  nextPage.setAttribute("direction", "next");
+  nextPage.style.cursor = "pointer";
+  nextPage.style.width = "90px";
+  nextPage.innerText = " next page ›";
+  pagesOfContent.appendChild(nextPage);
+}
+
+//this function add switch pages property on pages links
+function switchPages() {
+  const pageLinks = document.querySelectorAll("a.blog-pages-links");
+  pageLinks.forEach(function(item) {
+    item.addEventListener("click", function(event) {
+      pageLinks.forEach(function(item) {
+        item.classList.remove("blog-pages-links--active");
+      });
+      event.target.classList.add("blog-pages-links--active");
+      document.querySelector(".blog-content").innerHTML = ""; // clear page
+      createContent(arrayOfArticles, +item.getAttribute("data")); // create new content
+      document
+        .querySelectorAll("p.blog-pages-links")[0]
+        .setAttribute("data-next-page", item.innerText);
+      if (
+        +document
+          .querySelectorAll("p.blog-pages-links")[0]
+          .getAttribute("data-next-page") > 1
+      ) {
+        document.querySelectorAll("p.blog-pages-links")[0].style.display =
+          "flex";
+      } else {
+        document.querySelectorAll("p.blog-pages-links")[0].style.display =
+          "none";
+      }
+      document
+        .querySelectorAll("p.blog-pages-links")[1]
+        .setAttribute("data-next-page", item.innerText);
+    });
+  });
+}
 
 function createContent(arrayOfArticles, numOfPage) {
   let arr = arrayOfArticles.slice(numOfPage, numOfPage + 8);
@@ -48,7 +126,7 @@ function createArticle(articleObj) {
   date.innerText = articleObj.date;
   const description = document.createElement("div");
   description.setAttribute("class", "blog-content-article-text-description");
-  description.innerText = articleObj.text.slice(0, 260) + "   ...";
+  description.innerText = articleObj.text.slice(0, 200) + "   ...";
   const link = document.createElement("a");
   link.setAttribute("class", "blog-content-article-text-link");
   link.setAttribute("href", "articles.html?" + articleObj.id);
@@ -61,40 +139,6 @@ function createArticle(articleObj) {
   article.appendChild(text);
   blogContent.appendChild(article);
 }
-
-function createPages() {
-  let articlescount = 0;
-  const pagesOfContent = document.querySelector(".blog-pages");
-  sumOfPages = Math.ceil(arrayOfArticles.length / 8);
-  if (arrayOfArticles.length <= 8) {
-    return;
-  }
-  for (let pagesindex = 1; pagesindex <= sumOfPages; pagesindex++) {
-    const pageIndex = document.createElement("a");
-    pageIndex.setAttribute("href", "#");
-    pageIndex.setAttribute("class", "blog-pages-links");
-    pageIndex.setAttribute("data", articlescount);
-    pageIndex.innerText = pagesindex;
-    pagesOfContent.appendChild(pageIndex);
-    articlescount += 8;
-  }
-}
-
-//this function add switch pages property on pages links
-function switchPages() {
-  const pageLinks = document.querySelectorAll(".blog-pages-links");
-  pageLinks.forEach(function(item) {
-    item.addEventListener("click", function(event) {
-      pageLinks.forEach(function(item) {
-        item.classList.remove("blog-pages-links--active");
-      });
-      event.target.classList.add("blog-pages-links--active");
-      document.querySelector(".blog-content").innerHTML = "";
-      createContent(arrayOfArticles, +item.getAttribute("data"));
-    });
-  });
-}
-setTimeout(switchPages, 500);
 
 document.querySelectorAll(".blog-links").forEach(function(item) {
   item.addEventListener("click", function(event) {
@@ -116,3 +160,24 @@ document.querySelectorAll(".blog-links").forEach(function(item) {
       "</a>";
   });
 });
+
+function changePages(buttondata) {
+  const buttons = document.querySelectorAll("a.blog-pages-links");
+  let buttonIndex = +buttondata.getAttribute("data-next-page") - 1;
+  const direction = buttondata.getAttribute("direction");
+  if (buttonIndex == buttons.length) {
+    return;
+  }
+  if (buttonIndex > 1) {
+    document.querySelectorAll("p.blog-pages-links")[0].style.display = "flex";
+  }
+
+  if (direction === "prev") {
+    buttonIndex--;
+    buttondata.setAttribute("data-next-page", buttonIndex);
+  } else {
+    buttonIndex++;
+    buttondata.setAttribute("data-next-page", buttonIndex + 1);
+  }
+  buttons[buttonIndex].click();
+}

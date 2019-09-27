@@ -38,7 +38,7 @@ html {
 }
 
 .blog-content-article {
-  margin: 15px 0;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   border: 1px solid #f0f0f0;
@@ -55,7 +55,7 @@ html {
 
 .blog-content-article-text {
   box-sizing: border-box;
-  padding: 15px;
+  padding: 25px;
 }
 
 .blog-content-article-text-title {
@@ -115,28 +115,30 @@ html {
 
   .blog-content-wrapper {
     order: 2;
-    width: 70%;
+    flex-basis: 76%;
   }
 
   .blog-links-wrapper {
-    width: 25%;
     order: 1;
+    flex-basis: 25%;
   }
 
   .blog-content-article {
+    justify-content: space-between;
     flex-direction: row;
     margin: 25px 0;
   }
   .blog-content-article-img-wrapper {
-    flex-basis: 40%;
+    flex-basis: 49%;
   }
   .blog-content-article-text {
-    flex-basis: 60%;
+    padding: 25px 20px 25px 30px;
+    flex-basis: 50%;
   }
 
   .blog-content-article-img:hover {
     transform: scale(1.1, 1.1);
-    transition: 0.3s;
+    transition: 0.25s;
   }
 
   .blog-pages-links:hover {

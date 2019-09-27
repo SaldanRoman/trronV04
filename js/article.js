@@ -6,7 +6,6 @@ let articleArrObj;
     if (xhr.readyState === 4 && xhr.status === 200) {
       articleArrObj = JSON.parse(xhr.response);
       makeArticle();
-      console.log(articleArrObj);
     }
   };
   xhr.open("GET", "./jsons/articles.json", true);
@@ -49,4 +48,12 @@ function makeArticle() {
   articleContent.appendChild(image);
   articleContent.appendChild(title);
   articleContent.appendChild(text);
+  document.querySelector(".nav-links-add").innerHTML =
+    "» " +
+    '<a href="blog.html?' +
+    articleObj[0].categorie +
+    '" class="nav-links">' +
+    " " +
+    articleObj[0].categorie +
+    "</a>";
 }
