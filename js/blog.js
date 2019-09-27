@@ -9,7 +9,6 @@ let sumOfPages;
       arrayOfArticles = JSON.parse(xhr.response).articles;
       arrayOfAllArticles = JSON.parse(xhr.response).articles;
       const serchLine = window.location.search.slice(1).replace("%20", " ");
-      console.log(serchLine);
       createPages();
       switchPages();
       createContent(arrayOfArticles, 0);
@@ -76,16 +75,20 @@ function switchPages() {
       document
         .querySelectorAll("p.blog-pages-links")[0]
         .setAttribute("data-next-page", item.innerText);
-      if (
-        +document
-          .querySelectorAll("p.blog-pages-links")[0]
-          .getAttribute("data-next-page") > 1
-      ) {
+
+      if (+item.innerText > 1) {
         document.querySelectorAll("p.blog-pages-links")[0].style.display =
           "flex";
       } else {
         document.querySelectorAll("p.blog-pages-links")[0].style.display =
           "none";
+      }
+      if (+item.innerText === 9) {
+        document.querySelectorAll("p.blog-pages-links")[1].style.display =
+          "none";
+      } else {
+        document.querySelectorAll("p.blog-pages-links")[1].style.display =
+          "flex";
       }
       document
         .querySelectorAll("p.blog-pages-links")[1]
@@ -108,17 +111,20 @@ function createArticle(articleObj) {
   const blogContent = document.querySelector(".blog-content");
   const article = document.createElement("div");
   article.setAttribute("class", "blog-content-article");
-  const imgLink = document.createElement("a");
+
+  const imgLink = document.createElement("div");
   imgLink.setAttribute("class", "blog-content-article-img-wrapper");
-  imgLink.setAttribute("href", "articles.html?" + articleObj.id);
-  const img = document.createElement("img");
-  img.setAttribute("class", "blog-content-article-img");
-  img.setAttribute("src", articleObj.image);
-  img.setAttribute("alt", articleObj.title);
-  imgLink.appendChild(img);
+  const link = document.createElement("a");
+  link.setAttribute("class", "blog-content-article-img");
+  link.setAttribute("href", "articles.html?" + articleObj.id);
+  link.setAttribute("style", "background-image: url(" + articleObj.image + ")");
+  link.setAttribute("alt", articleObj.title);
+  imgLink.appendChild(link);
+
   const text = document.createElement("div");
   text.setAttribute("class", "blog-content-article-text");
-  const title = document.createElement("div");
+  const title = document.createElement("a");
+  title.setAttribute("href", "articles.html?" + articleObj.id);
   title.setAttribute("class", "blog-content-article-text-title");
   title.innerText = articleObj.title;
   const date = document.createElement("div");
@@ -127,14 +133,14 @@ function createArticle(articleObj) {
   const description = document.createElement("div");
   description.setAttribute("class", "blog-content-article-text-description");
   description.innerText = articleObj.text.slice(0, 200) + "   ...";
-  const link = document.createElement("a");
-  link.setAttribute("class", "blog-content-article-text-link");
-  link.setAttribute("href", "articles.html?" + articleObj.id);
-  link.innerText = "more";
+  const textLink = document.createElement("a");
+  textLink.setAttribute("class", "blog-content-article-text-link");
+  textLink.setAttribute("href", "articles.html?" + articleObj.id);
+  textLink.innerText = "more";
   text.appendChild(title);
   text.appendChild(date);
   text.appendChild(description);
-  text.appendChild(link);
+  text.appendChild(textLink);
   article.appendChild(imgLink);
   article.appendChild(text);
   blogContent.appendChild(article);
@@ -165,8 +171,8 @@ function changePages(buttondata) {
   const buttons = document.querySelectorAll("a.blog-pages-links");
   let buttonIndex = +buttondata.getAttribute("data-next-page") - 1;
   const direction = buttondata.getAttribute("direction");
-  if (buttonIndex == buttons.length) {
-    return;
+  if (buttonIndex === buttons.length - 1) {
+    document.querySelectorAll("p.blog-pages-links")[1].style.display = "none";
   }
   if (buttonIndex > 1) {
     document.querySelectorAll("p.blog-pages-links")[0].style.display = "flex";

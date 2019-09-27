@@ -44,10 +44,9 @@ function makeArticle() {
   const text = document.createElement("p");
   text.setAttribute("class", "article-content-text");
   text.innerText = articleObj[0].text;
-
-  articleContent.appendChild(image);
-  articleContent.appendChild(title);
-  articleContent.appendChild(text);
+  articleContent.prepend(text);
+  articleContent.prepend(title);
+  articleContent.prepend(image);
   document.querySelector(".nav-links-add").innerHTML =
     "» " +
     '<a href="blog.html?' +
