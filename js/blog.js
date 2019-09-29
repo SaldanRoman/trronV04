@@ -52,7 +52,6 @@ function createPages() {
   previousPage.style.display = "none";
   previousPage.innerText = "‹ previous page";
   pagesOfContent.prepend(previousPage);
-
   const nextPage = document.createElement("p");
   nextPage.setAttribute("class", "blog-pages-links");
   nextPage.setAttribute("onclick", "changePages(this)");
@@ -106,7 +105,6 @@ function createArticle(articleObj) {
   const blogContent = document.querySelector(".blog-content");
   const article = document.createElement("div");
   article.setAttribute("class", "blog-content-article");
-
   const imgLink = document.createElement("div");
   imgLink.setAttribute("class", "blog-content-article-img-wrapper");
   const link = document.createElement("a");
@@ -115,7 +113,6 @@ function createArticle(articleObj) {
   link.setAttribute("style", "background-image: url(" + articleObj.image + ")");
   link.setAttribute("alt", articleObj.title);
   imgLink.appendChild(link);
-
   const text = document.createElement("div");
   text.setAttribute("class", "blog-content-article-text");
   const title = document.createElement("a");
@@ -141,7 +138,7 @@ function createArticle(articleObj) {
   blogContent.appendChild(article);
 }
 
-//this function
+//this function makes filtered content and breadcrumbs
 document.querySelectorAll(".blog-links").forEach(function(item) {
   item.addEventListener("click", function(event) {
     arrayOfArticles = [];
@@ -175,7 +172,6 @@ function changePages(buttondata) {
   if (buttonIndex > 1) {
     document.querySelectorAll("p.blog-pages-links")[0].style.display = "flex";
   }
-
   if (direction === "prev") {
     buttonIndex--;
     buttondata.setAttribute("data-next-page", buttonIndex);
