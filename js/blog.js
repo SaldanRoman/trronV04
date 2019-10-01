@@ -22,7 +22,7 @@
       createContent(arrayOfAllArticles, indexOfStartArticles);
     }
   };
-  xhr.open("GET", "./jsons/articles.json", true);
+  xhr.open("GET", "../jsons/articles.json", true);
   xhr.send();
 })();
 
@@ -73,7 +73,6 @@ function createLinksOfPages() {
   if (activePages.length === indexOfStartArticles) {
     nextPage.parentNode.removeChild(nextPage);
   }
-  console.log(activePages[indexOfStartArticles - 1].classList);
   activePages[indexOfStartArticles - 1].classList.add(
     "blog-pages-links--active"
   );
@@ -81,7 +80,6 @@ function createLinksOfPages() {
 
 function createContent(arrayOfArticles, num) {
   let numOfPage = 0;
-
   if (num > 1) {
     for (let i = 1; i < num; i++) {
       numOfPage += 8;
@@ -131,11 +129,13 @@ function createArticle(articleObj) {
   article.appendChild(imgLink);
   article.appendChild(text);
   blogContent.appendChild(article);
-  document.querySelector("h1").innerText = articleObj.categorie;
-  document.querySelector(".nav-links-categorie").innerHTML =
-    ' » <a href="blog.html?' +
-    articleObj.categorie +
-    '" class="nav-links">' +
-    articleObj.categorie +
-    "</a>";
+  if (serchLine) {
+    document.querySelector("h1").innerText = articleObj.categorie;
+    document.querySelector(".nav-links-categorie").innerHTML =
+      ' » <a href="blog.html?' +
+      articleObj.categorie +
+      '" class="nav-links">' +
+      articleObj.categorie +
+      "</a>";
+  }
 }

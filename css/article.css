@@ -16,7 +16,7 @@ nav {
   box-sizing: border-box;
 }
 
-.article-content {
+.article-content-wrapper {
   order: 1;
 }
 
@@ -67,7 +67,7 @@ nav {
 }
 
 .article-socials {
-  width: 35px;
+  width: 32px;
   padding: 5px;
 }
 
@@ -91,7 +91,7 @@ nav {
   .article-wrapper {
     flex-direction: row;
   }
-  .article-content {
+  .article-content-wrapper {
     width: 70%;
     order: 2;
   }

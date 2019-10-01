@@ -1,12 +1,11 @@
 @import "css/benefits.css";
 @import "css/slider.css";
 @import "css/footer.css";
+@import "css/product-page.css";
 @import "css/articles.css";
-@import "css/article.css";
 @import "css/header.css";
-@import "css/timer.css";
+@import "css/article.css";
 @import "css/blog.css";
-
 @font-face {
   font-family: "OpenSans";
   src: url("assets/fonts/opensans.ttf") format("truetype"),

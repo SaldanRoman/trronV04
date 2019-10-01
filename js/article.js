@@ -8,16 +8,9 @@ let articleArrObj;
       makeArticle();
     }
   };
-  xhr.open("GET", "./jsons/articles.json", true);
+  xhr.open("GET", "../jsons/articles.json", true);
   xhr.send();
 })();
-
-// fetch("./jsons/articles.json")
-//   .then(response => response.json())
-//   .then(data => {
-//     articleArrObj = data;
-//     makeArticle();
-//   });
 
 function makeArticle() {
   let searchableIDOfObject = +window.location.search.slice(1);
@@ -36,17 +29,15 @@ function makeArticle() {
   image.setAttribute("src", articleObj[0].image);
   image.setAttribute("alt", articleObj[0].title);
   image.setAttribute("class", "article-content-image");
-
   const title = document.createElement("p");
   title.setAttribute("class", "article-content-title");
   title.innerText = articleObj[0].title;
-
   const text = document.createElement("p");
   text.setAttribute("class", "article-content-text");
   text.innerText = articleObj[0].text;
-  articleContent.prepend(text);
-  articleContent.prepend(title);
-  articleContent.prepend(image);
+  articleContent.appendChild(image);
+  articleContent.appendChild(title);
+  articleContent.appendChild(text);
   document.querySelector(".nav-links-add").innerHTML =
     "» " +
     '<a href="blog.html?' +

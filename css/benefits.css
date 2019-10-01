@@ -33,7 +33,92 @@
 .benefits-item-img.hover {
     position: relative;
     pointer-events: none;
+    /*animation: jump 1.5s linear;*/
+    -webkit-animation: jump 1.5s linear;
+    -moz-animation: jump 1.5s linear;
+    -o-animation: jump 1.5s linear;
     animation: jump 1.5s linear;
+}
+
+@-webkit-keyframes jump {
+    0% {
+        top: 0;
+    }
+    10% {
+        top: -25px;
+    }
+    20% {
+        top: 0;
+    }
+    30% {
+        top: -15px;
+    }
+    40% {
+        top: 0;
+    }
+    50% {
+        top: -5px;
+    }
+    60% {
+        top: 0;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@-moz-keyframes jump {
+    0% {
+        top: 0;
+    }
+    10% {
+        top: -25px;
+    }
+    20% {
+        top: 0;
+    }
+    30% {
+        top: -15px;
+    }
+    40% {
+        top: 0;
+    }
+    50% {
+        top: -5px;
+    }
+    60% {
+        top: 0;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@-o-keyframes jump {
+    0% {
+        top: 0;
+    }
+    10% {
+        top: -25px;
+    }
+    20% {
+        top: 0;
+    }
+    30% {
+        top: -15px;
+    }
+    40% {
+        top: 0;
+    }
+    50% {
+        top: -5px;
+    }
+    60% {
+        top: 0;
+    }
+    100% {
+        top: 0;
+    }
 }
 
 @keyframes jump {
