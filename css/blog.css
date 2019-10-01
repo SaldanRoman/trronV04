@@ -110,6 +110,11 @@ html {
   box-sizing: border-box;
 }
 
+.blog-pages-links--prevButton,
+.blog-pages-links--nextButton {
+  width: 100px;
+}
+
 .blog-pages-links--active {
   color: #ff8c00;
 }
